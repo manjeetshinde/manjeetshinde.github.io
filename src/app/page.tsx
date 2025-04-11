@@ -4,6 +4,7 @@ import Profile from "./Profile";
 import SocialLinks from "./SocialLinks";
 
 // TODO: Change mouse arrow to something fancy
+// TODO: Add Skillset icons, JS, React, Node, etc
 
 export default function AuthorPage() {
   return (
