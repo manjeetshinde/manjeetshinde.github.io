@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true,
-    remotePatterns: [],
   },
   assetPrefix: process.env.NODE_ENV === "production" ? "/portfolio" : "",
 };
