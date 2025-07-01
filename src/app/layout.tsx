@@ -1,4 +1,4 @@
-import AuroraBlobBackground from "@/components/AuroraBlobBackground";
+import AuroraBlobBackground from "@/components/Animations/AuroraBlobBackground";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";

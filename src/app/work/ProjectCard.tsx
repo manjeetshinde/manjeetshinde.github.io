@@ -1,6 +1,6 @@
+import Card from "@/components/Card";
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
-import Card from "../Card";
 
 type ProjectCardProps = {
   title: string;

@@ -1,4 +1,4 @@
-import Navigation from "../Navigation";
+import Navigation from "@/components/Navigation";
 import ProjectList from "./ProjectList";
 
 export default function ProjectPage() {

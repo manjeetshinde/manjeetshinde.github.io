@@ -1,10 +1,7 @@
-import ExploreMore from "./ExploreMore";
-import Introduction from "./Introduction";
-import Profile from "./Profile";
-import SocialLinks from "./SocialLinks";
-
-// TODO: Change mouse arrow to something fancy
-// TODO: Add Skillset icons, JS, React, Node, etc
+import ExploreMore from "@/components/ExploreMore";
+import Introduction from "@/components/Introduction";
+import Profile from "@/components/Profile";
+import SocialLinks from "@/components/SocialLinks";
 
 export default function AuthorPage() {
   return (
