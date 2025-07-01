@@ -1,4 +1,5 @@
-import { BsFillArrowRightSquareFill, BsGithub } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
+import { GoCommandPalette, GoShieldCheck } from "react-icons/go";
 import { PageLink } from "./PageLink";
 
 const pageLinks = [
@@ -10,7 +11,7 @@ const pageLinks = [
   {
     title: "Procillage",
     href: "https://procillage.com",
-    icon: BsFillArrowRightSquareFill,
+    icon: GoShieldCheck,
   },
   {
     title: "GitHub",
@@ -20,7 +21,7 @@ const pageLinks = [
   {
     title: "Work",
     href: "/work",
-    icon: BsFillArrowRightSquareFill,
+    icon: GoCommandPalette,
   },
 ];
 

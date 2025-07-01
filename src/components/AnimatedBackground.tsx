@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 
 // Subtle animated background that responds to mouse/touch
-export default function AnimatedBackground() {
+export default function AnimatedSpotlightBackground() {
   const bgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
