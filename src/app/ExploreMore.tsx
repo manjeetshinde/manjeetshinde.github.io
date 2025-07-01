@@ -1,4 +1,4 @@
-import { BsGithub } from "react-icons/bs";
+import { FiGithub } from "react-icons/fi";
 import { GoCommandPalette, GoShieldCheck } from "react-icons/go";
 import { PageLink } from "./PageLink";
 
@@ -16,7 +16,7 @@ const pageLinks = [
   {
     title: "GitHub",
     href: "https://github.com/manjeetshinde",
-    icon: BsGithub,
+    icon: FiGithub,
   },
   {
     title: "Work",
