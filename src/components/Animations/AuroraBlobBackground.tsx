@@ -13,12 +13,21 @@ export default function AuroraBlobBackground() {
       preserveAspectRatio="xMidYMid slice"
     >
       <defs>
-        <linearGradient id="auroraGradient" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#a1c4fd" />
-          <stop offset="100%" stopColor="#fbc2eb" />
-        </linearGradient>
+        <radialGradient
+          id="auroraGradient"
+          cx="50%"
+          cy="50%"
+          r="80%"
+          fx="60%"
+          fy="40%"
+        >
+          <stop offset="0%" stopColor="#fff1f9" />
+          <stop offset="40%" stopColor="#a1c4fd" />
+          <stop offset="80%" stopColor="#fbc2eb" />
+          <stop offset="100%" stopColor="#ec4899" />
+        </radialGradient>
         <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="60" />
+          <feGaussianBlur stdDeviation="80" />
         </filter>
       </defs>
       <g>
@@ -29,7 +38,7 @@ export default function AuroraBlobBackground() {
 }
 
 function AnimatedBlob() {
-  // Much larger, more rounded, morphing, blurred blob
+  // More fluid, faster, multi-color morphing blurred blob
   return (
     <>
       <path
@@ -40,15 +49,15 @@ function AnimatedBlob() {
       >
         <animate
           attributeName="d"
-          dur="12s"
+          dur="6s"
           repeatCount="indefinite"
           values="M960,400 Q1200,250 1440,400 Q1600,540 1440,680 Q1200,830 960,680 Q720,540 960,400Z;
-                  M960,420 Q1180,320 1400,420 Q1520,540 1400,660 Q1180,760 960,660 Q740,540 960,420Z;
+                  M960,500 Q1100,200 1500,400 Q1700,600 1400,800 Q1200,900 900,700 Q700,600 960,500Z;
                   M960,400 Q1200,250 1440,400 Q1600,540 1440,680 Q1200,830 960,680 Q720,540 960,400Z"
         />
         <animate
           attributeName="opacity"
-          dur="12s"
+          dur="6s"
           repeatCount="indefinite"
           values="0.5;0.7;0.5"
         />

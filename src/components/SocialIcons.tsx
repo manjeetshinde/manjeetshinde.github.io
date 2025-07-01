@@ -15,11 +15,14 @@ export interface SocialIconsProps {
   name: string;
   url: string;
   icon: keyof typeof iconMap;
-  color: string;
+  color?: string; // Make color optional
 }
+
+const PINK = "#ec4899";
 
 export const SocialIcons = ({ name, url, icon, color }: SocialIconsProps) => {
   const Icon = iconMap[icon];
+  const glowColor = color || PINK;
   return (
     <Link href={url} target="_blank" title={name}>
       <div
@@ -28,8 +31,8 @@ export const SocialIcons = ({ name, url, icon, color }: SocialIconsProps) => {
         onMouseEnter={(e) => {
           (
             e.currentTarget as HTMLDivElement
-          ).style.boxShadow = `0 0 16px 2px ${color}55`;
-          (e.currentTarget as HTMLDivElement).style.color = color;
+          ).style.boxShadow = `0 0 16px 2px ${glowColor}55`;
+          (e.currentTarget as HTMLDivElement).style.color = glowColor;
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLDivElement).style.boxShadow = "";
@@ -38,8 +41,8 @@ export const SocialIcons = ({ name, url, icon, color }: SocialIconsProps) => {
         onFocus={(e) => {
           (
             e.currentTarget as HTMLDivElement
-          ).style.boxShadow = `0 0 16px 2px ${color}55`;
-          (e.currentTarget as HTMLDivElement).style.color = color;
+          ).style.boxShadow = `0 0 16px 2px ${glowColor}55`;
+          (e.currentTarget as HTMLDivElement).style.color = glowColor;
         }}
         onBlur={(e) => {
           (e.currentTarget as HTMLDivElement).style.boxShadow = "";

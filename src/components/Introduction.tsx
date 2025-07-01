@@ -14,7 +14,7 @@ export default function Introduction() {
       />
       <Card className="gap-2">
         <h1 className="text-2xl font-semibold">Manjeet Shinde</h1>
-        <p>Full Stack Developer | Cloud Engineer</p>
+        <p>Developer | Founder@Procillage</p>
       </Card>
     </Card>
   );
