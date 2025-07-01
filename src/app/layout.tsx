@@ -18,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-black text-white antialiased`}>
+        <div className="fixed inset-0 -z-20 bg-black"></div>
         {/* <AnimatedSpotlightBackground /> */}
         {/* <AnimatedGradientWavesBackground /> */}
         {/* <AnimatedBackground /> */}

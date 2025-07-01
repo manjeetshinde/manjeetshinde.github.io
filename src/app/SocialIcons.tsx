@@ -11,7 +11,7 @@ const iconMap = {
   SiApplemusic,
 };
 
-interface SocialIconsProps {
+export interface SocialIconsProps {
   name: string;
   url: string;
   icon: keyof typeof iconMap;

@@ -1,5 +1,5 @@
 import Card from "./Card";
-import { SocialIcons } from "./SocialIcons";
+import { SocialIcons, SocialIconsProps } from "./SocialIcons";
 
 // TODO: Add apple music link
 
@@ -35,7 +35,12 @@ export default function SocialLinks() {
     <Card>
       <section className="flex flex-wrap gap-4">
         {socialLinks.map((socialLink) => {
-          return <SocialIcons {...(socialLink as any)} key={socialLink.name} />;
+          return (
+            <SocialIcons
+              {...(socialLink as SocialIconsProps)}
+              key={socialLink.name}
+            />
+          );
         })}
       </section>
     </Card>

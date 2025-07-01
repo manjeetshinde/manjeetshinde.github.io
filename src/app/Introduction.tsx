@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Card from "./Card";
 
@@ -10,7 +9,7 @@ export default function Introduction() {
         width={400} // or your image width
         height={400} // or your image height
         className="m-auto w-full rounded-2xl grayscale hover:grayscale-0"
-        alt="Manjeet's image"
+        alt="Manjeet profile image"
         priority
       />
       <Card className="gap-2">
