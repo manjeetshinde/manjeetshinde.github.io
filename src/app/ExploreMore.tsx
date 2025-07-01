@@ -8,12 +8,12 @@ const pageLinks = [
   //   icon: BsFillArrowRightSquareFill,
   // },
   {
-    title: "PROCILLAGE",
+    title: "Procillage",
     href: "https://procillage.com",
     icon: BsFillArrowRightSquareFill,
   },
   {
-    title: "Github",
+    title: "GitHub",
     href: "https://github.com/manjeetshinde",
     icon: BsGithub,
   },
