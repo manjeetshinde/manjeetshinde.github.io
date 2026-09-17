@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# manjeetshinde.github.io
 
-## Getting Started
+Personal website of Manjeet Shinde — software developer and founder of
+[Procillage](https://procillage.com). Live at
+<https://manjeetshinde.github.io>.
 
-First, run the development server:
+## Stack
+
+- [Next.js](https://nextjs.org) 16 (App Router, static export)
+- [React](https://react.dev) 19
+- [Tailwind CSS](https://tailwindcss.com) 4 (CSS-first configuration in
+  `src/app/globals.css` — no `tailwind.config` file)
+- [TypeScript](https://www.typescriptlang.org) in strict mode
+- No client components, no animation or UI libraries — server-rendered HTML
+  and CSS only
+
+## Toolchain
+
+- **Package manager:** [Bun](https://bun.com), pinned to `bun@1.4.2` via the
+  `packageManager` field. `bun.lock` is the single authoritative lockfile.
+- **Runtime:** Bun (it bundles its own JavaScriptCore runtime; no separate
+  Node.js install is required to develop or build this site).
+
+## Commands
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install              # install dependencies
+bun run dev              # dev server at http://localhost:3000
+bun run build            # production build → static export in out/
+bun run lint             # ESLint (flat config, eslint-config-next)
+bun run typecheck        # tsc --noEmit
+bun run audit            # dependency security audit (bun audit)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Static export & GitHub Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`next.config.ts` sets `output: "export"` with `trailingSlash: true`; the
+production build emits plain HTML into `out/`. This repository is a GitHub
+**user** site (`manjeetshinde.github.io`), which Pages serves from the domain
+root — so no `basePath`/`assetPrefix` is configured and all URLs are
+root-relative.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Pushing to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml):
+Bun installs with a frozen lockfile, builds, and `actions/deploy-pages`
+publishes `out/` through the GitHub Pages Actions environment.
 
-## Learn More
+Architectural constraints:
 
-To learn more about Next.js, take a look at the following resources:
+- Static export only — no server actions, API routes, middleware, ISR, or
+  runtime data. Anything dynamic belongs client-side, and this site needs
+  none of it.
+- `sitemap.ts`/`robots.ts` carry `export const dynamic = "force-static"`
+  (required for metadata routes under `output: "export"`).
+- Images are `unoptimized` (no image optimization service on Pages); assets
+  in `public/` are pre-sized for their render dimensions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── layout.tsx        # fonts, metadata, header/footer shell
+│   ├── page.tsx          # home — hero, selected work, now
+│   ├── work/page.tsx     # full project index
+│   ├── not-found.tsx     # 404
+│   ├── sitemap.ts
+│   └── robots.ts
+├── components/           # site-header, site-footer, work-row
+└── lib/                  # site.ts (canonical URLs), projects.ts (typed data)
+```
 
-## Deploy on Vercel
+## Security notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`package.json` `overrides` pins a few transitive lint-toolchain packages
+(`brace-expansion`, `flatted`, `picomatch`, `minimatch`, `@humanfs/node`) to
+patched versions; `bun audit` runs clean.
