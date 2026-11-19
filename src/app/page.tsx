@@ -32,7 +32,7 @@ export default function HomePage() {
             />
           </figure>
           <p className="intro">
-            At <a href={site.procillage}>Procillage</a>, I build software for pathology labs and tools shared across our products.
+            At <a href={site.procillage}>Procillage</a>, I build software and prototype what might come next.
           </p>
         </div>
 
@@ -42,14 +42,24 @@ export default function HomePage() {
             <a href="/work/">Full work index</a>
           </div>
           <ul className="project-list">
-            {featuredProjects.map((project) => (
-              <li key={project.slug}>
-                <a className="feature" href={`/work/#${project.slug}`}>
+            {featuredProjects.map((project) => {
+              const label = (
+                <>
                   <span className="project-title display">{project.title}</span>
                   <span className="project-caption">{project.description}</span>
-                </a>
-              </li>
-            ))}
+                </>
+              );
+
+              return (
+                <li key={project.slug}>
+                  {project.href ? (
+                    <a className="feature" href={project.href}>{label}</a>
+                  ) : (
+                    <div className="feature">{label}</div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </section>
       </main>

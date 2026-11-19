@@ -47,6 +47,7 @@ export const projects: Project[] = [
     slug: "pathox",
     title: "Pathox",
     description: "Software for pathology labs to manage workflows, records, and reporting.",
+    href: "https://pahtox.procillage.com/",
   },
   {
     slug: "vidyut-krg",
