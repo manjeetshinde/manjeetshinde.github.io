@@ -1,0 +1,315 @@
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/fonts/instrument-serif.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --paper: #f7f6f2;
+  --ink: #191917;
+  --quiet: #5c5b54;
+  --accent: #823e2d;
+  --rule: #c9c5bb;
+  --display: "Instrument Serif", "Times New Roman", serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 1rem/1.5 system-ui, sans-serif;
+}
+
+h1, h2, p, figure {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.24em;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.frame {
+  width: min(100% - clamp(2.5rem, 9vw, 10rem), 76rem);
+  margin-inline: auto;
+}
+
+.display {
+  font-family: var(--display);
+  font-weight: 400;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 1;
+  inset-block-start: 1rem;
+  inset-inline-start: 1rem;
+  padding: 0.65rem 1rem;
+  transform: translateY(-200%);
+  background: var(--paper);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding-block: clamp(1rem, 2.8vw, 2.125rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-header nav,
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: clamp(1rem, 2.5vw, 2.25rem);
+  row-gap: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+.site-header nav {
+  margin-inline-start: auto;
+}
+
+.site-header a,
+.site-footer nav a,
+.section-heading a {
+  display: inline-block;
+  padding-block: 0.4rem;
+  text-decoration: none;
+}
+
+.site-header a:hover,
+.site-header a[aria-current],
+.site-footer a:hover,
+.section-heading a:hover {
+  text-decoration-line: underline;
+}
+
+.home-link {
+  font-weight: 550;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 0.63fr);
+  grid-template-areas:
+    "name portrait"
+    "intro portrait";
+  column-gap: clamp(2rem, 7vw, 8rem);
+  row-gap: clamp(2rem, 4vw, 3.75rem);
+  align-items: start;
+  padding-block-start: clamp(3.5rem, 8vw, 7rem);
+}
+
+.hero-name {
+  grid-area: name;
+  font-size: clamp(5.5rem, 13.5vw, 12.5rem);
+  line-height: 0.81;
+  letter-spacing: -0.044em;
+}
+
+.hero-name span {
+  display: block;
+}
+
+.portrait {
+  grid-area: portrait;
+  align-self: end;
+  width: min(100%, 25rem);
+  margin-block-start: 1.25rem;
+  margin-inline-start: auto;
+  background: #e1ddd3;
+  overflow: hidden;
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+.intro {
+  grid-area: intro;
+  max-width: 32ch;
+  color: var(--quiet);
+  font-size: clamp(1.05rem, 1.8vw, 1.375rem);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.intro a {
+  color: var(--accent);
+}
+
+.selected {
+  margin-block-start: clamp(4.75rem, 11vw, 10rem);
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  padding-block-end: 0.625rem;
+  color: var(--quiet);
+  font-size: 0.9375rem;
+}
+
+.section-heading h2 {
+  font: inherit;
+  font-weight: 550;
+  color: var(--ink);
+}
+
+.project-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.project-list > li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.feature,
+.archive-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 0.625rem clamp(1.5rem, 6vw, 6rem);
+  align-items: baseline;
+  padding-block: clamp(1.25rem, 3vw, 2.125rem);
+}
+
+.feature {
+  text-decoration: none;
+}
+
+.feature:focus-visible {
+  outline-offset: 4px;
+}
+
+.feature:hover .project-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.13em;
+}
+
+.project-title {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 0.97;
+  letter-spacing: -0.018em;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+.project-caption {
+  max-width: 33ch;
+  color: var(--quiet);
+  text-wrap: pretty;
+}
+
+.page-title {
+  margin-block-end: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(4.75rem, 13vw, 11.5rem);
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+  overflow-wrap: anywhere;
+}
+
+.work-page {
+  padding-block-start: clamp(3rem, 8vw, 7rem);
+}
+
+.archive-entry {
+  scroll-margin-top: 1.25rem;
+}
+
+.archive-entry:target .project-title {
+  color: var(--accent);
+}
+
+.archive .project-title {
+  font-size: clamp(2.25rem, 4.2vw, 4.25rem);
+}
+
+.archive .project-title a {
+  text-decoration-color: var(--rule);
+  text-underline-offset: 0.14em;
+}
+
+.archive .project-title a:hover {
+  text-decoration-color: currentColor;
+}
+
+.site-footer {
+  display: flex;
+  gap: 1.25rem 2.5rem;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  margin-block-start: clamp(4rem, 10vw, 8rem);
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+  border-top: 1px solid var(--rule);
+}
+
+.contact-link {
+  font-size: clamp(2.75rem, 6vw, 5.75rem);
+  line-height: 0.95;
+  text-underline-offset: 0.14em;
+}
+
+@media (max-width: 46rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "name" "portrait" "intro";
+    row-gap: 1.75rem;
+  }
+
+  .hero-name {
+    font-size: clamp(4.5rem, 19vw, 9rem);
+  }
+
+  .portrait {
+    width: min(84%, 24rem);
+    margin-block-start: 0.5rem;
+  }
+
+  .feature,
+  .archive-entry {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
