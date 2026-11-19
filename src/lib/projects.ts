@@ -7,6 +7,12 @@ type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "leonida-social",
+    title: "Leonida.Social",
+    description: "An upcoming hangout for the GTA VI community.",
+    href: "https://leonida.social/",
+  },
+  {
     slug: "venturebridge",
     title: "VentureBridge",
     description: "A platform for startups to present ideas, meet investors, and raise capital.",
@@ -158,7 +164,7 @@ export const projects: Project[] = [
   },
 ];
 
-const featuredSlugs = ["pathox", "xperience-design-system", "procillage-sso"];
+const featuredSlugs = ["leonida-social", "pathox", "procillage"];
 
 export const featuredProjects = featuredSlugs.map((slug) => {
   const project = projects.find((entry) => entry.slug === slug);
